@@ -37,7 +37,7 @@ public class Group {
     private Boolean isPrivateChat = false;
 
     @Column(name = "group_members")
-//    @Convert(converter = ArrayStringListConverter.class)
+    @Convert(converter = ArrayStringListConverter.class)
     private List<String> groupMembers;
 
     @OneToMany(mappedBy = "group", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -46,6 +46,7 @@ public class Group {
     @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<UserGroup> userGroups = new HashSet<>();
+
 
     public Group(){}
 
