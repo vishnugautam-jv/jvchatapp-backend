@@ -1,5 +1,6 @@
 package com.jvgroup.jvchatapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.jvgroup.jvchatapp.dao.ArrayStringListConverter;
 import jakarta.persistence.*;
 
@@ -41,6 +42,7 @@ public class Message {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "group_id", nullable = false)
+    @JsonBackReference
     private Group group = new Group();
 
     @Column(name = "sent_by_user")

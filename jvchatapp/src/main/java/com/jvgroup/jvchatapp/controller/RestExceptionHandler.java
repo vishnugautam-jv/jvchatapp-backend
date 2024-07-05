@@ -26,6 +26,4 @@ public class RestExceptionHandler {
         CustomErrorResponse error = new CustomErrorResponse(status, exc.getMessage(), System.currentTimeMillis());
         return new ResponseEntity<>(error, status);
     }
-
-
 }

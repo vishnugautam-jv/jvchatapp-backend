@@ -1,6 +1,7 @@
 package com.jvgroup.jvchatapp.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.jvgroup.jvchatapp.dao.ArrayStringListConverter;
 import jakarta.persistence.*;
 
@@ -41,6 +42,7 @@ public class Group {
     private List<String> groupMembers;
 
     @OneToMany(mappedBy = "group", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Message> messages = new ArrayList<>();
 
     @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
